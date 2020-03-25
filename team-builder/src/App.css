@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+
+.member-card {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.member-card button {
+  width: 70px;
+  height: 20px;
+  background-color: white;
+  border: 2px solid lightblue;
+  cursor: pointer;
+
+}

@@ -2,18 +2,11 @@ import React, { useState } from 'react';
 
 import Member from './Member.js';
 
-const Members = () => {
-    const [memberList, setMemberList] = useState([
-        {
-            name: 'Micah',
-            email: 'micah@test.com',
-            role: 'backend engineer'
-        },
-    ]);
+const Members = ({ memberList, setMemberToEdit }) => {
     
     return (
         memberList.map(member => {
-            return <Member member={member} />
+            return <Member key={member.name} member={member} setMemberToEdit={setMemberToEdit} />
         })
     )
 }

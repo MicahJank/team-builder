@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const AddMemberForm = () => {
+const MemberForm = ({ setMemberList, memberList, memberToEdit }) => {
     const [inputs, setInputs] = useState({
         name: '',
         email: '',
         role: ''
     });
+
+    useEffect(() => {
+        setInputs(memberToEdit)
+    }, [memberToEdit])
 
     const handleChange = (e) => {
         setInputs({
@@ -16,7 +20,18 @@ const AddMemberForm = () => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        console.log(inputs);
+        
+        console.log("onSubmit -> memberList", memberList)
+        console.log("onSubmit -> inputs", inputs)
+        setMemberList([
+            ...memberList,
+            inputs
+        ])
+        setInputs({
+            name: '',
+            email: '',
+            role: ''
+        })
     }
     return (
         <form>
@@ -32,4 +47,4 @@ const AddMemberForm = () => {
     )
 }
 
-export default AddMemberForm;
+export default MemberForm;
